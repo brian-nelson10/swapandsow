@@ -1,14 +1,21 @@
 const { Schema, model } = require('mongoose');
 const reactionSchema = require('./Reaction');
+const imageSchema = require('./Image');
 const dateFormat = require('../utils/dateFormat');
-
+const mongoose = require('mongoose');
 const postSchema = new Schema(
   {
+    postTitle: {
+      type: String,
+      required: 'You need to leave a plant!',
+      minlength: 1,
+      maxlength: 300
+    },
     postText: {
       type: String,
       required: 'You need to leave a plant!',
       minlength: 1,
-      maxlength: 280
+      maxlength: 800
     },
     createdAt: {
       type: Date,
@@ -19,10 +26,7 @@ const postSchema = new Schema(
       type: String,
       required: true
     },
-    img: { 
-      data: Buffer, 
-      type: String 
-    },
+    images: [imageSchema],
     reactions: [reactionSchema]
   },
   {
@@ -36,6 +40,6 @@ postSchema.virtual('reactionCount').get(function() {
   return this.reactions.length;
 });
 
-const Post = model('Post', postSchema);
+const Post = mongoose.model('Post', postSchema);
 
 module.exports = Post;

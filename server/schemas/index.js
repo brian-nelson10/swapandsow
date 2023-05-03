@@ -1,4 +1,4 @@
 const typeDefs = require('./typeDefs');
 const resolvers = require('./resolvers');
-
-module.exports = { typeDefs, resolvers };
+const addPostMutation = require('./typeDefs');
+module.exports = { typeDefs, resolvers, addPostMutation };
