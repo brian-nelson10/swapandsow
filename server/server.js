@@ -1,11 +1,11 @@
 const path = require('path');
 const express = require('express');
-// import ApolloServer
 const { ApolloServer } = require('apollo-server-express');
+const GridFsStorage = require('multer-gridfs-storage').GridFsStorage;
+const multer = require('multer');
+const { createWriteStream } = require('fs');
 //import MiddleWare
 // const { authMiddleware } = require('./utils/auth');
-
-// const multer = require('multer');
 // import our typeDefs and resolvers
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
@@ -37,6 +37,29 @@ app.use(express.json());
 //   newItem.img.contentType = 'image/png';
 //   newItem.save();
 //  });
+// Create a new GridFS storage instance
+const storage = new GridFsStorage({
+  url: process.env.MONGO_URI || 'mongodb://localhost/swapandsow',
+  file: (req, file) => {
+    return {
+      filename: `${Date.now()}-${file.originalname}`,
+      bucketName: 'uploads',
+    };
+  },
+});
+
+// Create a new multer instance with the storage options
+const upload = multer({
+  storage,
+});
+// Serve up static assets
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../client/build')));
+}
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/build/index.html'));
+});
 // Create a new instance of an Apollo server with the GraphQL schema
 const startApolloServer = async (typeDefs, resolvers) => {
 await server.start();
