@@ -84,13 +84,13 @@ const Login = (props) => {
                                         name="email"
                                         id="email"
                                         placeholder="Email"
-                                        className="block w-full p-4 text-lg rounded-sm bg-black"
+                                        className="block w-full p-4 text-lg rounded-sm"
                                         value={formState.email}
                                         onChange={handleChange} />
                                 </div>
                                 <div className="pb-2 pt-4">
                                     <input
-                                        className="block w-full p-4 text-lg rounded-sm bg-black"
+                                        className="block w-full p-4 text-lg rounded-sm"
                                         type="password"
                                         name="password"
                                         id="password"

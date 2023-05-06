@@ -4,6 +4,7 @@ import Image from "../Image";
 import plantWeb from "../../assets/images/planticon.png";
 import plant from "../../assets/images/planticon.png";
 import { useNavigate } from "react-router-dom";
+import { Link } from 'react-router-dom';
 const wordVariants = {
     hovered: {
       y: [0, -5, 0, 5, 0],
@@ -39,7 +40,7 @@ export default function PlantButton() {
         <motion.div
         variants={wordVariants}
         whileHover="hovered"
-        className=""
+        className="bg-transparent "
         onClick={toggleMenu}
         onMouseEnter={toggleMenu}
         onMouseLeave={toggleMenu}>
@@ -53,10 +54,10 @@ export default function PlantButton() {
             initial="initial"
             animate="animate"
             exit="exit"
-            className="absolute bottom-0 top-full -mt-8 w-48 bg-white rounded-lg shadow-xl z-10">
-          <ul className="py-2">
-            <li className="px-4 py-4 hover:bg-gray-300 cursor-pointer font-lofi text-center" onClick={handlePost}>Add Plant Clipping</li>
-            <li className="px-4 py-4 hover:bg-gray-300 cursor-pointer font-lofi text-center" onClick={handlePost}>Ask For Advice</li>
+            className="absolute mr-2 top-full -mt-8 w-45 bg-white rounded-lg shadow-xl z-10">
+          <ul className="py-2 -ml-6">
+            <li className="px-4 py-4 mb-1 bg-white hover:bg-gray-300 cursor-pointer font-lofi text-center" onClick={handlePost}>Add Plant Clipping</li>
+            <li className="px-4 py-4 bg-white hover:bg-gray-300 cursor-pointer font-lofi text-center"><Link to="/postform">Ask For Advice</Link></li>
             
           </ul>
         </motion.div>

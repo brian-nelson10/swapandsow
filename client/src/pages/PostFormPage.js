@@ -16,6 +16,7 @@ const main = {
     }
 };
 const PostFormPage = () => {
+    return (
     <AnimatePresence mode='wait'>
             <motion.main
                 layout
@@ -24,10 +25,13 @@ const PostFormPage = () => {
                 initial="initial"
                 animate="animate"
                 exit="exit">
-                    <section className=''>
+                    <section className='px-[11rem] py-[10rem] min-h-[59rem]'>
+                        <div className='font-lofi text-center text-[1.5rem]'> Post a plant clipping for a swap!</div>
+                       
                     <PostForm/>
                     </section>
                     </motion.main>
                     </AnimatePresence>
+                    )
 };
 export default PostFormPage;

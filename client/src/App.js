@@ -10,7 +10,7 @@ import AnimatedRoutes from './components/AnimatedRoutes';
 import useWindowSize from './hooks/useWindowSize';
 import AnimatedLogRoutes from './components/AnimatedLogRoutes';
 const httpLink = createHttpLink({
-  uri: 'http://localhost:3001/graphql',
+  uri: '/graphql',
 });
 
 const authLink = setContext((_, { headers }) => {

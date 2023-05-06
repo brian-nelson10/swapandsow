@@ -3,7 +3,7 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import Home from '../pages/Home';
 import Login from '../pages/Login';
-// import NoMatch from './pages/NoMatch';
+import NoMatch from '../pages/NoMatch';
 // import SinglePost from './pages/SingleThought';
 // import Profile from './pages/Profile';
 import Signup from '../pages/Signup';
@@ -31,7 +31,7 @@ function AnimatedRoutes() {
                     element={<Signup />}
                 />
                 <Route
-                    path="/postformpage"
+                    path="/postform"
                     element={<PostFormPage />}
                 />
                 {/*<Route path="/profile">
@@ -41,11 +41,11 @@ function AnimatedRoutes() {
                 <Route
                     path="/post/:id"
                     element={<SinglePost/>}
-                />
+                />*/}
                 <Route
                     path="*"
                     element={<NoMatch />}
-                /> */}
+                /> 
             </Routes>
         </AnimatePresence>
     )

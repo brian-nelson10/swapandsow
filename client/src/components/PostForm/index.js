@@ -1,9 +1,16 @@
 import React, { useState } from 'react';
-
+import { motion } from "framer-motion";
 import { useMutation } from '@apollo/client';
 import { ADD_POST } from '../../utils/mutations';
 import { QUERY_POSTS, QUERY_ME } from '../../utils/queries';
-
+import x from '../../assets/images/x.svg';
+import { Link } from 'react-router-dom';
+const wordVariants = {
+    hovered: {
+      y: [0, -2, 0, 2, 0],
+      transition: { duration: .5, ease: 'easeInOut' }
+    }
+  }
 const PostForm = () => {
     const [postTitle, setTitle] = useState('');
     const [postText, setText] = useState('')
@@ -59,54 +66,61 @@ const PostForm = () => {
         }
     }
 
-return (
-    <section>
-    <form className="max-w-lg mx-auto mt-8 p-6 bg-gray-100 shadow-md" onSubmit={handleSubmit}>
-        <h2 className="text-2xl font-bold mb-4">Create Post</h2>
-        <div className="mb-4">
-            <label htmlFor="title" className="block text-gray-700 font-bold mb-2">
-                Title
-            </label>
-            <input
-                type="text"
-                id="title"
-                className="w-full px-3 py-2 border rounded-md focus:outline-none focus:shadow-outline-blue"
-                value={postTitle}
-                onChange={handleTitleChange}
-            />
-        </div>
-        <div className="mb-4">
-            <label htmlFor="text" className="block text-gray-700 font-bold mb-2">
-                Text
-            </label>
-            <textarea
-                id="text"
-                className="w-full px-3 py-2 border rounded-md focus:outline-none focus:shadow-outline-blue"
-                rows="4"
-                value={postText}
-                onChange={handleTextChange}
-            ></textarea>
-        </div>
-        <div className="mb-4">
-            <label htmlFor="image" className="block text-gray-700 font-bold mb-2">
-                Image
-            </label>
-            <input
-                type="file"
-                id="image"
-                className="w-full px-3 py-2 border rounded-md focus:outline-none focus:shadow-outline-blue"
-                onChange={handleImageChange}
-            />
-        </div>
-        <button
-            type="submit"
-            className="bg-[#ffd6a3] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline-blue hover:bg-blue-600"
-        >
-            Submit
-        </button>
-    </form>
-    </section>
-);
+    return (
+        <section>
+            <form className="max-w-lg mx-auto mt-8 p-6 bg-gray-100 shadow-md font-lofi" onSubmit={handleSubmit}>
+                <div className='grid grid-cols-2'>
+                   <div className='justify-start grid'><h2 className="text-2xl font-bold mb-4">Create Post</h2></div>
+                    <motion.div 
+                        variants={wordVariants}
+                        whileHover="hovered"
+                        className='justify-end grid'><Link to="/"><img src={x} className=""/></Link></motion.div>
+                </div>
+
+                <div className="mb-4">
+                    <label htmlFor="title" className="block text-gray-700 font-bold mb-2">
+                        Title
+                    </label>
+                    <input
+                        type="text"
+                        id="title"
+                        className="w-full px-3 py-2 border rounded-md focus:outline-none focus:shadow-outline-blue"
+                        value={postTitle}
+                        onChange={handleTitleChange}
+                    />
+                </div>
+                <div className="mb-4">
+                    <label htmlFor="text" className="block text-gray-700 font-bold mb-2">
+                        Text
+                    </label>
+                    <textarea
+                        id="text"
+                        className="w-full px-3 py-2 border rounded-md focus:outline-none focus:shadow-outline-blue"
+                        rows="4"
+                        value={postText}
+                        onChange={handleTextChange}
+                    ></textarea>
+                </div>
+                <div className="mb-4">
+                    <label htmlFor="image" className="block text-gray-700 font-bold mb-2">
+                        Image
+                    </label>
+                    <input
+                        type="file"
+                        id="image"
+                        className="w-full px-3 py-2 border rounded-md focus:outline-none focus:shadow-outline-blue"
+                        onChange={handleImageChange}
+                    />
+                </div>
+                <button
+                    type="submit"
+                    className="bg-[#ffd6a3] text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline-blue hover:bg-[#55a630]"
+                >
+                    Submit
+                </button>
+            </form>
+        </section>
+    );
 };
 
 export default PostForm;

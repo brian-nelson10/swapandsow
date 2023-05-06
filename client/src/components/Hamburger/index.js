@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import "./hamburger.css";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import img from "../../assets/images/plant.png";
@@ -27,22 +26,28 @@ export default function Hamburger() {
     };
     const navigate = useNavigate();
     function handleHome() {
-        navigate('/')
+        navigate('/');
+        setIsOpen(false);
     };
     function handleLogin() {
-        navigate('/login')
+        navigate('/login');
+        setIsOpen(false);
     };
     function handleSignup() {
-        navigate('/signup')
+        navigate('/signup');
+        setIsOpen(false);
     };
     function handleProfile() {
-        navigate('/profile')
+        navigate('/profile');
+        setIsOpen(false);
     };
     function handleAdvice() {
-        navigate('/advice')
+        navigate('/advice');
+        setIsOpen(false);
     };
     function handleContact() {
-        navigate('/contact')
+        navigate('/contact');
+        setIsOpen(false);
     };
     const child1 = {
         visible: {
