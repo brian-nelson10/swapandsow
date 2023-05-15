@@ -23,25 +23,35 @@ export const ADD_USER = gql`
     }
   }
 `;
-
-export const ADD_POST = gql`
-  mutation addPost($postText: String!) {
-    addPost(postText: $postText) {
-      _id
-      postTitle
-      postText
-      createdAt
-      username
-      reactionCount
-      reactions {
-        _id
-      }
-      images {
-        id
-        filename
-        mimetype
-        size
-      }
-    }
+export const CREATE_POST = gql`
+mutation CreatePost($input: CreatePostInput!) {
+  createPost(post: $input) {
+    _id
+    username
+    postTitle
+    postText
+    imageUrl
   }
+}
 `;
+// export const ADD_POST = gql`
+//   mutation addPost($postText: String!) {
+//     addPost(postText: $postText) {
+//       _id
+//       postTitle
+//       postText
+//       createdAt
+//       username
+//       reactionCount
+//       reactions {
+//         _id
+//       }
+//       images {
+//         id
+//         filename
+//         mimetype
+//         size
+//       }
+//     }
+//   }
+// `;

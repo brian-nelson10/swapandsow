@@ -1,25 +1,32 @@
 import { gql } from '@apollo/client';
 
-export const QUERY_POSTS = gql`
-  query posts($username: String) {
-    posts(username: $username) {
+// export const GET_POSTS = gql`
+//   query GetPosts ($username: String) {
+//     posts(username: $username) {
+//       _id
+//       postText
+//       postTitle
+//       imageUrl
+//       createdAt
+//       username
+//       reactionCount
+//       reactions {
+//         _id
+//         createdAt
+//         username
+//         reactionBody
+//       }
+//     }
+//   }
+// `;
+export const GET_POSTS = gql`
+  query GetPosts {
+    posts {
       _id
-      postText
-      createdAt
       username
-      reactionCount
-      reactions {
-        _id
-        createdAt
-        username
-        reactionBody
-      }
-      images {
-        id
-        filename
-        mimetype
-        size
-      }
+      postTitle
+      postText
+      imageUrl
     }
   }
 `;
@@ -39,7 +46,7 @@ export const QUERY_POST = gql `
                 reactionBody
             }
             images {
-                id 
+                _id 
                 filename
                 mimetype
                 size

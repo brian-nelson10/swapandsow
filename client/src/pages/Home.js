@@ -1,11 +1,11 @@
 import React from 'react';
 import { AnimatePresence, motion } from "framer-motion";
 import PostList from "../components/PostList";
-import PostInputBar from "../components/PostInputBar";
+// import PostInputBar from "../components/PostInputBar";
 import FriendList from "../components/FriendList";
 import Auth from "../utils/auth";
 import { useQuery } from '@apollo/client';
-import { QUERY_POSTS, QUERY_ME_BASIC } from '../utils/queries';
+import { GET_POSTS, QUERY_ME_BASIC } from '../utils/queries';
 
 const main = {
     initial: {
@@ -22,7 +22,7 @@ const main = {
     }
 };
 const Home = () => {
-    const { loading, data } = useQuery(QUERY_POSTS);
+    const { loading , data } = useQuery(GET_POSTS);
     const { data: userData } = useQuery(QUERY_ME_BASIC);
     const posts = data?.posts || [];
      const loggedIn = Auth.loggedIn();
@@ -44,10 +44,14 @@ const Home = () => {
                     {/* <PostInputBar /> */}
                 </div>
                 <div className="">
-                    <PostList
+                    {loading ? (
+                        <div className='font-lofi text-[2rem]'>...Loading</div>
+                    ) : (
+                        <PostList
                         posts={posts}
                         title="Our Garden.."
                     />
+                    )}
                 </div>
                 {loggedIn && userData ? (
           <div className="">

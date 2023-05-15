@@ -39,12 +39,11 @@ const Login = (props) => {
     // submit form
     const handleFormSubmit = async event => {
         event.preventDefault();
-
+        console.log(formState);
         try {
             const { data } = await login({
                 variables: { ...formState }
             });
-
             Auth.login(data.addUser.token);
         } catch (e) {
             console.error(e);
@@ -62,10 +61,8 @@ const Login = (props) => {
                 exit="exit">
                 <section className="min-h-screen flex items-stretch text-black ">
                     <div className="lg:flex w-1/2 hidden bg-[#ffeccc] relative items-center">
-                        {/* <div className="absolute bg-no-repeat login-bg -mb-[2rem] opacity-50 inset-0 z-0"></div> */}
                         <div className="w-full px-24 z-20 grid">
                             <h1 className="text-[12rem] font-spring text-center tracking-widest -mb-[5rem]">Swap</h1> <h1 className="text-[13rem] font-spring text-center tracking-wide -mb-[5rem]">&</h1> <h1 className="text-[12rem] font-spring text-center tracking-widest -mb-6">Sow</h1>
-                            {/* <p className="text-3xl my-4">Capture your personal memory in unique way, anywhere.</p> */}
                         </div>
                     </div>
                     <div className="lg:w-1/2 w-full flex items-center justify-center text-center md:px-16 px-0 z-0 bg-black">
@@ -83,7 +80,7 @@ const Login = (props) => {
                                         type="email"
                                         name="email"
                                         id="email"
-                                        placeholder="Email"
+                                        placeholder="email"
                                         className="block w-full p-4 text-lg rounded-sm"
                                         value={formState.email}
                                         onChange={handleChange} />
@@ -108,7 +105,7 @@ const Login = (props) => {
                                         type='submit'>Login</button>
                                 </div>
                             </form>
-                            {error && <div>Login Failed</div>}
+                            {error && <div className='font-lofi text-white'>Login Failed</div>}
                         </div>
                     </div>
                 </section>

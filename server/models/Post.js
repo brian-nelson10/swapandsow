@@ -1,6 +1,5 @@
 const { Schema, model } = require('mongoose');
 const reactionSchema = require('./Reaction');
-const imageSchema = require('./Image');
 const dateFormat = require('../utils/dateFormat');
 const mongoose = require('mongoose');
 const postSchema = new Schema(
@@ -26,7 +25,10 @@ const postSchema = new Schema(
       type: String,
       required: true
     },
-    images: [imageSchema],
+    imageUrl: {
+      type: String,
+      required: false
+    },
     reactions: [reactionSchema]
   },
   {

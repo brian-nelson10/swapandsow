@@ -1,12 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
 const PostList = ({ posts, title }) => {
+
   if (!posts.length) {
     return <><h3 className='font-lofi text-[3rem]'>{title}</h3><h3 className='font-spring text-[8rem]'>No plants yet...</h3></>
     ;
   }
-
   return (
     <div>
       <h3 className='font-lofi text-[3rem]'>{title}</h3>
@@ -25,7 +24,9 @@ const PostList = ({ posts, title }) => {
             </p>
             <div className="card-body">
             <Link to={`/post/${post._id}`}>
+            <p>{post.postTitle}</p>
                 <p>{post.postText}</p>
+                <img src={post.imageUrl} alt="Post" />
                 <p className="mb-0 font-lofi">
                     Comments: {post.reactionCount} || Click to{' '}
                     {post.reactionCount ? 'see' : 'start'} the discussion!

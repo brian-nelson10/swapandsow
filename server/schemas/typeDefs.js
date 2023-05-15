@@ -14,13 +14,6 @@ type User {
     posts: [Post]
     friends: [User]
   }
-  type Image {
-    id: ID!
-    filename: String!
-    mimetype: String!
-    size: Int!
-    url: String!
-  }
 type Post {
     _id: ID!
     postTitle: String!
@@ -28,16 +21,8 @@ type Post {
     createdAt: String!
     username: String!
     reactionCount: Int!
-    images: [Image]!
-  }
-  input ImageInput {
-    file: Upload!
-  }
-
-  input PostInput {
-    title: String!
-    body: String!
-    images: [ImageInput!]!
+    reactions: [Reaction]
+    imageUrl: String!
   }
   type Reaction {
     _id: ID
@@ -53,15 +38,21 @@ type Post {
     me: User
     users: [User]
     user(username: String!): User
-    posts(username: String): [Post]
+    posts(username: String): [Post!]!
     post(_id: ID!): Post
+  }
+  input CreatePostInput {
+    username: String!
+    postTitle: String!
+    postText: String!
+    imageUrl: String!
   }
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
     addReaction(postId: ID!, reactionBody: String!): Post
     addFriend(friendId: ID!): User
-    createPost(post: PostInput!): Post!
+      createPost(post: CreatePostInput!): Post!
   }
   `;
  
