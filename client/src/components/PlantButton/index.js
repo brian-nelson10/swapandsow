@@ -54,10 +54,10 @@ export default function PlantButton() {
             initial="initial"
             animate="animate"
             exit="exit"
-            className="absolute mr-2 top-full -mt-8 w-45 bg-white rounded-lg shadow-xl z-10">
-          <ul className="py-2 -ml-6">
-            <li className="px-4 py-4 mb-1 bg-white hover:bg-gray-300 cursor-pointer font-lofi text-center" onClick={handlePost}>Add Plant Clipping</li>
-            <li className="px-4 py-4 bg-white hover:bg-gray-300 cursor-pointer font-lofi text-center"><Link to="/postform">Ask For Advice</Link></li>
+            className="absolute -ml-2 top-full -mt-2 w-45 bg-transparent rounded-lg z-10">
+          <ul className="py-2 -ml-6 bg-transparent">
+            <li className="px-4 py-4 mb-1 bg-gray-100 hover:bg-gray-300 rounded-lg cursor-pointer font-lofi text-center" onClick={handlePost}>Add Plant Clipping</li>
+            <li className="px-4 py-4 bg-gray-100 hover:bg-gray-300 cursor-pointer rounded-lg font-lofi text-center"><Link to="/postform">Ask For Advice</Link></li>
             
           </ul>
         </motion.div>

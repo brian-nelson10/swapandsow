@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import img from "../../assets/images/plant.png";
-import img1 from "../../assets/images/plant.png";
-import img2 from "../../assets/images/plant.png";
-import img3 from "../../assets/images/plant.png";
-import img4 from "../../assets/images/plant.png";
+import img from "../../assets/images/hp-1.png";
+import img1 from "../../assets/images/hp-7.png";
+import img2 from "../../assets/images/hp-3.png";
+import img3 from "../../assets/images/hp-4.png";
+import img4 from "../../assets/images/hp-5.png";
+import img5 from "../../assets/images/hp-6.png";
 
 import Auth from "../../utils/auth";
 export default function Hamburger() {
@@ -295,7 +296,7 @@ export default function Hamburger() {
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
                                 transition={{ duration: 0.3 }}
-                                src={img4}
+                                src={img5}
                                 className="" />
                         )}
                     </motion.div>

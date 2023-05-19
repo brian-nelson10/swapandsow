@@ -96,10 +96,10 @@ const PostForm = () => {
                     <motion.div
                         variants={wordVariants}
                         whileHover="hovered"
-                        className='justify-end grid'><Link to="/"><img src={x} className="" /></Link></motion.div>
+                        className='justify-end grid'><Link to="/"><img src={x} className="" alt='upload' /></Link></motion.div>
                 </div>
-                <div className='mb-4'>
-                <label htmlFor="username">Username: {userData.me.username}</label>
+                <div className='mb-4 flex-row flex gap-4'>
+                <p className="font-bold" htmlFor="username">Username:</p> <p className='font-bebas tracking-wide'>{userData.me.username}</p>
 
           {/* <input
             type="text"

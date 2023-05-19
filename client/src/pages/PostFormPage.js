@@ -26,7 +26,7 @@ const PostFormPage = () => {
                 animate="animate"
                 exit="exit">
                     <section className='px-[11rem] py-[10rem] min-h-[59rem]'>
-                        <div className='font-lofi text-center text-[1.5rem]'> Post a plant clipping for a swap!</div>
+                        <div className='font-lofi text-center text-[1.5rem] bg-gray-100 bg-opacity-80 mx-[30rem] justify-center'> Post a plant clipping for a swap!</div>
                        
                     <PostForm/>
                     </section>

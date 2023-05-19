@@ -7,7 +7,8 @@ module.exports = {
         extend: {
             fontFamily: {
                 lofi: ['Lofi'],
-                spring: ['Springtime']
+                spring: ['Springtime'],
+                bebas: ['Bebas Neue']
             },
         },
     },
