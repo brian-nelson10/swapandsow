@@ -19,6 +19,10 @@ const userSchema = new Schema(
       required: true,
       minlength: 5
     },
+    profileImage: {
+      type: String,
+      required: true,
+    },
     posts: [
       {
         type: Schema.Types.ObjectId,

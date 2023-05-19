@@ -13,16 +13,17 @@ type User {
     friendCount: Int
     posts: [Post]
     friends: [User]
+    profileImage: String
   }
 type Post {
-    _id: ID!
-    postTitle: String!
-    postText: String!
-    createdAt: String!
-    username: String!
-    reactionCount: Int!
+    _id: ID
+    postTitle: String
+    postText: String
+    createdAt: String
+    username: String
+    reactionCount: Int
     reactions: [Reaction]
-    imageUrl: String!
+    imageUrl: String
   }
   type Reaction {
     _id: ID
@@ -42,14 +43,14 @@ type Post {
     post(_id: ID!): Post
   }
   input CreatePostInput {
-    username: String!
+    
     postTitle: String!
     postText: String!
     imageUrl: String!
   }
   type Mutation {
     login(email: String!, password: String!): Auth
-    addUser(username: String!, email: String!, password: String!): Auth
+    addUser(username: String!, email: String!, password: String!, profileImage: String!): Auth
     addReaction(postId: ID!, reactionBody: String!): Post
     addFriend(friendId: ID!): User
       createPost(post: CreatePostInput!): Post!

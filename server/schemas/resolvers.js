@@ -62,7 +62,7 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    createPost: async (_, { post }) => {
+    createPost: async (_, { post }, context) => {
       try {
         // Destructure the post object to access its fields
         const { username, postTitle, postText, imageUrl } = post;
@@ -74,7 +74,7 @@ const resolvers = {
 
         // Create a new post document in the database
         const newPost = new Post({
-          username,
+         username: context.user.username,
           postTitle,
           postText,
           imageUrl: uploadResult.secure_url,

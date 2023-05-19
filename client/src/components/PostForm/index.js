@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { motion } from "framer-motion";
-import { useMutation } from '@apollo/client';
+import { useMutation, useQuery } from '@apollo/client';
 import { CREATE_POST } from '../../utils/mutations';
-import { GET_POSTS, QUERY_ME } from '../../utils/queries';
+import { GET_POSTS, QUERY_ME, QUERY_ME_BASIC } from '../../utils/queries';
 import x from '../../assets/images/x.svg';
 import { Link } from 'react-router-dom';
+import UploadButton from "../../components/PostForm/UploadButton";
 const wordVariants = {
     hovered: {
         y: [0, -2, 0, 2, 0],
@@ -12,11 +13,11 @@ const wordVariants = {
     }
 }
 const PostForm = () => {
-    const [username, setUsername] = useState('');
+    // const [username, setUsername] = useState('');
     const [postTitle, setPostTitle] = useState('');
     const [postText, setPostText] = useState('');
     const [image, setImage] = useState(null);
-
+    const { data: userData } = useQuery(QUERY_ME_BASIC);
     const [createPost, { loading, error }] = useMutation(CREATE_POST, {
         update(cache, { data: { createPost }}) {
             try {
@@ -55,30 +56,21 @@ const PostForm = () => {
             // Perform further processing or save the Cloudinary public URL in your post data
             const imageUrl = data.secure_url;
     
-            // Now you can proceed with sending the post data to your server
-            // const postData = {
-            //   username,
-            //   postTitle,
-            //   postText,
-            //   imageUrl,
-            // };
-    
-            // Send the postData to your server using fetch or any other HTTP client library
-            
             // Create the post on the server
             await createPost({
                 variables: {
                     input: {
-                    username,
+                    // username,
                     postTitle,
                     postText,
                     imageUrl,
+
                     },
                 },
             });
     
             // Clear form fields
-            setUsername('');
+            // setUsername('');
             setPostTitle('');
             setPostText('');
             setImage(null);
@@ -93,6 +85,7 @@ const PostForm = () => {
       const handleFileChange = (event) => {
         const file = event.target.files[0];
         setImage(file);
+
       };
     
     return (
@@ -106,13 +99,14 @@ const PostForm = () => {
                         className='justify-end grid'><Link to="/"><img src={x} className="" /></Link></motion.div>
                 </div>
                 <div className='mb-4'>
-                <label htmlFor="username">Username:</label>
-          <input
+                <label htmlFor="username">Username: {userData.me.username}</label>
+
+          {/* <input
             type="text"
             id="username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-          />
+          /> */}
           </div>
                 <div className="mb-4">
                     <label htmlFor="title" className="block text-gray-700 font-bold mb-2">
@@ -152,10 +146,10 @@ const PostForm = () => {
                 </div>
                 <button
                     type="submit"
-                    className="bg-[#ffd6a3] text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline-blue hover:bg-[#55a630]"
+                    className=""
                     disabled={loading}
                 >
-                    Submit
+                    <UploadButton/>
                 </button>
             </form>
         </section>

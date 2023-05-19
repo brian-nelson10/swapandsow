@@ -9,24 +9,19 @@ import { gql } from '@apollo/client';
 //       imageUrl
 //       createdAt
 //       username
-//       reactionCount
-//       reactions {
-//         _id
-//         createdAt
-//         username
-//         reactionBody
-//       }
+
 //     }
 //   }
 // `;
 export const GET_POSTS = gql`
-  query GetPosts {
-    posts {
+  query GetPosts($username: String) {
+    posts(username: $username) {
       _id
       username
       postTitle
       postText
       imageUrl
+      createdAt
     }
   }
 `;
@@ -61,6 +56,7 @@ export const QUERY_POST = gql `
         username
         email
         friendCount
+        profileImage
         friends {
           _id
           username
@@ -81,6 +77,7 @@ export const QUERY_POST = gql `
       _id
       username
       email
+      profileImage
       friendCount
       posts {
         _id
@@ -107,6 +104,7 @@ export const QUERY_ME_BASIC = gql`
     me {
       _id
       username
+      profileImage
       email
       friendCount
       friends {

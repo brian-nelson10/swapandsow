@@ -10,17 +10,17 @@ const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
 const PORT = process.env.PORT || 3001;
 
-cloudinary.config({
-  cloud_name: "dlseow4te",
-  api_key: "233834848735683",
-  api_secret: "2ovGrJ6usJdSXwC8lE9krRXlBTQ"
-});
-
 // create a new Apollo server and pass in our schema data
 const server = new ApolloServer({
   typeDefs,
   resolvers,
   context: authMiddleware
+});
+
+cloudinary.config({
+  cloud_name: "dlseow4te",
+  api_key: "233834848735683",
+  api_secret: "2ovGrJ6usJdSXwC8lE9krRXlBTQ"
 });
 
 const app = express();
@@ -29,7 +29,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cors({
   origin: 'http://localhost:3000',
-  methods: 'POST, PUT, PATCH, GET, DELETE, OPTIONS',
+  methods: 'POST, PUT, PATCH, GET, DELETE, OPTIONS, ADD, LOGIN',
   allowedHeaders: '*',
 }));
 

@@ -9,6 +9,7 @@ import ScrollTop from "./components/ScrollTop";
 import AnimatedRoutes from './components/AnimatedRoutes';
 import useWindowSize from './hooks/useWindowSize';
 import AnimatedLogRoutes from './components/AnimatedLogRoutes';
+import "./pages/styles.css"
 const httpLink = createHttpLink({
   uri: '/graphql',
 });
@@ -79,17 +80,19 @@ function App() {
           <ScrollTop />
           <AnimatedLogRoutes/>
           <main className=''>
-          <section className="grid grid-cols-2 w-screen z-50 fixed mx-8 my-8 px-2 py-8">
-            <div className="grid items-center justify-center z-40">
+          <section className="grid grid-cols-3 z-50 fixed h-[7rem] px-2 py-1 bg-[#ffd6a3]">
+            <div className="grid items-center w-screen -mt-4 justify-center z-40 ">
               <Hamburger />
             </div>
-
+            <div className='font-spring text-[6rem] -mb-10 justify-center text-start mr-[3rem]'>Swap & Sow</div>
             <div className="grid items-center justify-end lg:-mr-4 z-50">
               <PlantButton />
             </div>
+            
           </section>
-          <div ref={app} className="h-[100%] w-[100%]">
-            <div ref={scrollContainer} className="scroll h-[100%] w-[100%] ">
+          
+          <div ref={app} className="h-[100%] bg-hp bg-fixed">
+            <div ref={scrollContainer} className="scroll h-[100%]">
               <AnimatedRoutes />
               <div>
               <Footer />

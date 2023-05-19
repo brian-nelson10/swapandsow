@@ -1,11 +1,12 @@
 import React from 'react';
+import "./styles.css";
 import { AnimatePresence, motion } from "framer-motion";
 import PostList from "../components/PostList";
 // import PostInputBar from "../components/PostInputBar";
 import FriendList from "../components/FriendList";
 import Auth from "../utils/auth";
 import { useQuery } from '@apollo/client';
-import { GET_POSTS, QUERY_ME_BASIC } from '../utils/queries';
+import { GET_POSTS, QUERY_ME_BASIC, QUERY_USER } from '../utils/queries';
 
 const main = {
     initial: {
@@ -22,8 +23,9 @@ const main = {
     }
 };
 const Home = () => {
-    const { loading , data } = useQuery(GET_POSTS);
+    const { loading , data } = useQuery(GET_POSTS, QUERY_USER);
     const { data: userData } = useQuery(QUERY_ME_BASIC);
+     const user = data?.user || [];
     const posts = data?.posts || [];
      const loggedIn = Auth.loggedIn();
     // Responsive breakpoint
@@ -39,7 +41,7 @@ const Home = () => {
                 initial="initial"
                 animate="animate"
                 exit="exit">
-                    <section className='px-[11rem] py-[10rem] min-h-[59rem]'>
+                    <section className='px-[11rem] mx-[2rem] py-[10rem] min-h-[59rem]'>
                 <div className='flex-col'>
                     {/* <PostInputBar /> */}
                 </div>
@@ -49,6 +51,7 @@ const Home = () => {
                     ) : (
                         <PostList
                         posts={posts}
+                         user={user}
                         title="Our Garden.."
                     />
                     )}

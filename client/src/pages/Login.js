@@ -39,7 +39,6 @@ const Login = (props) => {
     // submit form
     const handleFormSubmit = async event => {
         event.preventDefault();
-        console.log(formState);
         try {
             const { data } = await login({
                 variables: { ...formState }
@@ -74,7 +73,7 @@ const Login = (props) => {
                             <p className="text-white font-lofi text-[4rem]">
                                 Login
                             </p>
-                            <form onSubmit={handleFormSubmit} action="" className="sm:w-2/3 w-full px-4 lg:px-0 mx-auto">
+                            <form onSubmit={handleFormSubmit} type="submit" className="sm:w-2/3 w-full px-4 lg:px-0 mx-auto">
                                 <div className="pb-2 pt-4">
                                     <input
                                         type="email"

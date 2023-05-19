@@ -1,0 +1,40 @@
+
+/* .container {
+	 position: absolute;
+	 left: 0;
+	 height: 100%;
+	 width: 100%;
+	 border-radius: 8px;
+	 display: flex;
+	 justify-content: space-between;
+	 align-items: center;
+	 font-size: 1.3rem;
+	 padding: 0 2rem;
+	 overflow: hidden;
+} */
+/* 
+ .loading {
+	 background: #f0759e;
+	
+} */
+ /* .loader {
+	 height: 1.5rem;
+	 width: 1.5rem;
+	 border: transparent solid 3px;
+	 border-top: white solid 3px;
+	 border-radius: 50%;
+} */
+ .loading-bar {
+	 position: absolute;
+	 top: calc(100% - 3px);
+	 left: 0;
+	 width: 0%;
+	 height: 3px;
+	 background: white;
+}
+ /* .done {
+	 background: #55a630;
+	 color: white;
+	 z-index: 3;
+	 top: -100%;
+} */

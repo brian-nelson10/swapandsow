@@ -47,7 +47,7 @@ export default function PlantButton() {
         <Image
             srcSet={plantWeb}
             fallback={plant}
-            className=" w-[30%] h-[30%] order hover:cursor-pointer"/>
+            className=" w-[25%] h-[20%] order hover:cursor-pointer"/>
              {isMenuOpen && (
         <motion.div 
             variants={popover}
