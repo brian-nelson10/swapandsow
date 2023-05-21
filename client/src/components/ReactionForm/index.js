@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import { useMutation } from '@apollo/client';
 import { ADD_REACTION } from '../../utils/mutations';
+import UploadButton from '../PostForm/UploadButton';
 
 const ReactionForm = ({ postId }) => {
   const [reactionBody, setBody] = useState('');
@@ -34,11 +35,11 @@ const ReactionForm = ({ postId }) => {
   };
 
   return (
-    <div>
+    <div className='bg-gray-100 rounded-xl shadow-xl'>
       <p
-        className={`m-0 ${characterCount === 280 || error ? 'text-error' : ''}`}
+        className={`font-lofi flex-row flex${characterCount === 280 || error ? 'text-error' : ''}`}
       >
-        Character Count: {characterCount}/280
+        Character Count: <p className='font-bebas'>{characterCount}/280</p>
         {error && <span className="ml-2">Something went wrong...</span>}
       </p>
       <form
@@ -48,13 +49,15 @@ const ReactionForm = ({ postId }) => {
         <textarea
           placeholder="Leave a reaction to this post..."
           value={reactionBody}
-          className="form-input col-12 col-md-9"
+          className="form-input w-full"
           onChange={handleChange}
         ></textarea>
-
-        <button className="btn col-12 col-md-3" type="submit">
-          Submit
+        <div className='justify-center grid p-8'>
+        <button className="font-lofi" type="submit">
+          <UploadButton
+            text="Submit"/>
         </button>
+        </div>
       </form>
 
       {error && <div>Something went wrong...</div>}

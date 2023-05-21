@@ -22,7 +22,7 @@ const SinglePost = (props) => {
     }
 
     return (
-        <div className='flex items-center justify-center rounded-xl h-screen grid py-[8rem] px-[5rem] '>
+        <div className='flex items-center justify-center rounded-xl h-max grid py-[8rem] px-[5rem] '>
             <div className="card mb-3 p-8 shadow-xl bg-gray-200 rounded-lg grid items-center justify-center">
                 <p className="card-header text-black font-bebas tracking-wide">
                     <span className="block text-[2rem]">

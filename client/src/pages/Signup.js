@@ -4,11 +4,9 @@ import { useNavigate } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
-// import ChevronLeftIcon from "../assets/images/plus.png";
-// import ChevronRightIcon from "../assets/images/plus.png";
-import image1 from "../assets/images/planticon.png"
-import image2 from "../assets/images/plant.png"
-import image3 from "../assets/images/planticon.png"
+import image1 from "../assets/images/hp-6.png"
+import image2 from "../assets/images/hp-7.png"
+import image3 from "../assets/images/hp-5.png"
 
 const main = {
   initial: {
@@ -48,27 +46,6 @@ const Signup = () => {
     setSelectedImage(imageURL);
     setProfileImage(imageURL);
   };
-
-  const shiftImageLeft = () => {
-    if (selectedImage === image1) {
-      handleImageSelection(image3);
-    } else if (selectedImage === image2) {
-      handleImageSelection(image1);
-    } else if (selectedImage === image3) {
-      handleImageSelection(image2);
-    }
-  };
-
-  const shiftImageRight = () => {
-    if (selectedImage === image1) {
-      handleImageSelection(image2);
-    } else if (selectedImage === image2) {
-      handleImageSelection(image3);
-    } else if (selectedImage === image3) {
-      handleImageSelection(image1);
-    }
-  };
-
   // submit form 
   const handleFormSubmit = async event => {
     event.preventDefault();
@@ -143,27 +120,8 @@ const Signup = () => {
                     onChange={handleChange}
                   />
                 </div>
-                <div className="image-carousel">
-        <button className="carousel-button text-white" onClick={shiftImageLeft}>
-          &lt;
-        </button>
-        <img src={selectedImage} alt="Selected" />
-        <button className="carousel-button text-white" onClick={shiftImageRight}>
-          &gt;
-        </button>
-      </div>
-                {/* <div className="image-carousel">
-                  <div className='font-lofi text-white text-[2rem] mt-4'>Choose profile plant</div>
-        <button className="arrow-button text-white" onClick={() => handleArrowClick('left')}>
-          &#60;
-        </button>
-        <img src={selectedImage} alt="Selected" />
-        <button className="arrow-button text-white" onClick={() => handleArrowClick('right')}>
-          &#62;
-        </button>
-      </div> */}
-                {/* <div>
-                  <p className='font-lofi text-white text-[2rem]'>Select Profile Image:</p>
+                <p className='font-lofi text-white text-[2rem]'>Select Profile Image:</p>
+                <div className='grid grid-cols-3'>
                   <label>
                     <input
                       type="radio"
@@ -171,7 +129,7 @@ const Signup = () => {
                       checked={selectedImage === image1}
                       onChange={() => handleImageSelection(image1)}
                     />
-                    <img src={image1} alt="Image 1" />
+                    <img className="" src={image1} alt="1" />
                   </label>
                   <label>
                     <input
@@ -180,7 +138,7 @@ const Signup = () => {
                       checked={selectedImage === image2}
                       onChange={() => handleImageSelection(image2)}
                     />
-                    <img src={image2} alt="Image 2" />
+                    <img src={image2} alt="2" />
                   </label>
                   <label>
                     <input
@@ -189,9 +147,9 @@ const Signup = () => {
                       checked={selectedImage === image3}
                       onChange={() => handleImageSelection(image3)}
                     />
-                    <img src={image3} alt="Image 3" />
-                  </label> */}
-            {/* </div> */}
+                    <img src={image3} alt="3" />
+                  </label> 
+            </div>
 
             <div className="font-lofi text-right text-gray-400 hover:underline hover:text-gray-100 hover:cursor-pointer">
               <div className="" onClick={handleLogin}>Have an account???</div>

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useQuery } from '@apollo/client';
 import { QUERY_ME_BASIC } from '../../utils/queries';
 import defaultImg from "../../assets/images/hp-1.png"
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 const PostInputBar = () => {
     const { data: userData } = useQuery(QUERY_ME_BASIC);
     const [selectedPhoto, setSelectedPhoto] = useState(null);
@@ -32,8 +32,11 @@ const PostInputBar = () => {
                     <div className='font-bebas tracking-wide justify-center text-center'>{userData.me.username}</div>
                 </div>
             ) :  <div className="profile-image h-[20%] w-[20%] ml-[18rem] mb-[3.5rem]">
+                <Link
+                    to={`/login`}>
             <img src={defaultImg} alt="Profile" />
             <div className='font-bebas justify-center text-center font-bold'>Login or Signup!</div>
+            </Link>
         </div>}
                 <div>
                     <input

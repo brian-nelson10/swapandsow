@@ -8,7 +8,7 @@ const iconVariants = {
     transition: { duration: .5, ease: 'easeInOut' }
   }
 }
-const UploadButton = () => {
+const UploadButton = ({ text }) => {
   const [isAnimating, setIsAnimating] = useState(false);
   const uploadControls = useAnimation();
   const loadingControls = useAnimation();
@@ -65,7 +65,7 @@ const UploadButton = () => {
           animate={uploadControls}
           whileHover="hovered"
         >
-          <motion.div variants={iconVariants}>upload</motion.div>
+          <motion.div variants={iconVariants}>{text}</motion.div>
         </motion.div>
         <motion.div 
           className="container loading bg-[#f0759e] z-20 font-bold -top-[100%] justify-center text-black relative flex items-center overflow-hidden text-[1.3rem] h-[100%] w-[100%] rounded-[8px]"

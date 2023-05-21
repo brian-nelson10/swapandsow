@@ -149,7 +149,8 @@ const PostForm = () => {
                     className=""
                     disabled={loading}
                 >
-                    <UploadButton/>
+                    <UploadButton
+                        text="Upload"/>
                 </button>
             </form>
         </section>
