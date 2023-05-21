@@ -37,6 +37,20 @@ mutation CreatePost($input: CreatePostInput!) {
   }
 }
 `;
+export const ADD_REACTION = gql`
+  mutation addReaction($postId: ID!, $reactionBody: String!) {
+    addReaction(postId: $postId, reactionBody: $reactionBody) {
+      _id
+      reactionCount
+      reactions {
+        _id
+        reactionBody
+        createdAt
+        username
+      }
+    }
+  }
+`;
 // export const ADD_POST = gql`
 //   mutation addPost($postText: String!) {
 //     addPost(postText: $postText) {

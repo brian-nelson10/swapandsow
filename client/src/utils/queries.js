@@ -34,17 +34,12 @@ export const QUERY_POST = gql `
             createdAt
             username
             reactionCount
+            imageUrl
             reactions {
                 _id
                 createdAt
                 username
                 reactionBody
-            }
-            images {
-                _id 
-                filename
-                mimetype
-                size
             }
         }
     }`;

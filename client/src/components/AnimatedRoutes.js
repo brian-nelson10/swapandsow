@@ -4,8 +4,8 @@ import { AnimatePresence } from 'framer-motion';
 import Home from '../pages/Home';
 import Login from '../pages/Login';
 import NoMatch from '../pages/NoMatch';
-// import SinglePost from './pages/SingleThought';
-// import Profile from './pages/Profile';
+import SinglePost from '../pages/SinglePost';
+// import Profile from '../pages/Profile';
 import Signup from '../pages/Signup';
 import PostFormPage from "../pages/PostFormPage";
 
@@ -37,11 +37,11 @@ function AnimatedRoutes() {
                 {/*<Route path="/profile">
                     <Route path=":username" element={<Profile />} />
                     <Route path="" element={<Profile />} />
-                </Route>
+                </Route>*/}
                 <Route
                     path="/post/:id"
                     element={<SinglePost/>}
-                />*/}
+                />
                 <Route
                     path="*"
                     element={<NoMatch />}
