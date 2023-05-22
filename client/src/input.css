@@ -2,10 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 @font-face {
-    font-family: "Lofi";
-    src: url("../src/assets/fonts/Lofi\ Lifestyle\ Demo.ttf");
-}
-@font-face {
     font-family: "Springtime";
     src: url("../src/assets/fonts/Springtime\ Flowers\ DEMO.ttf");
+}
+@font-face {
+    font-family: "Pumpkin";
+    src: url("../src/assets/fonts/PumpkinCheesecake.otf");
+}
+@font-face {
+    font-family: "Farmhouse";
+    src: url("../src/assets/fonts/Farmhouse.otf");
 }

@@ -10,6 +10,7 @@ import AnimatedRoutes from './components/AnimatedRoutes';
 import useWindowSize from './hooks/useWindowSize';
 import AnimatedLogRoutes from './components/AnimatedLogRoutes';
 import "./pages/styles.css"
+import AnimateLetters from './components/AnimatedLetters';
 const httpLink = createHttpLink({
   uri: '/graphql',
 });
@@ -85,7 +86,7 @@ function App() {
               <Hamburger />
             </div>
             <div className='grid font-spring text-[6rem] text-center mr-2 -mb-10'>
-              Swap & Sow
+              <AnimateLetters/>
               </div>
             <div className="grid items-center justify-end lg:-mr-[8rem] text-end z-50">
               <PlantButton />

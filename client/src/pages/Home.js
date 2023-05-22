@@ -25,7 +25,7 @@ const main = {
 const Home = () => {
     const { loading, data } = useQuery(GET_POSTS, QUERY_USER);
     const { data: userData } = useQuery(QUERY_ME_BASIC);
-    const user = data?.user || [];
+    // const user = data?.user || [];
     const posts = data?.posts || [];
     const loggedIn = Auth.loggedIn();
     // Responsive breakpoint
@@ -62,6 +62,7 @@ const Home = () => {
                             <PostList
                                 posts={posts}
                                 // user={user}
+                                postsPerPage={5}
                                 title="Our Garden.."
                             />
                         )}

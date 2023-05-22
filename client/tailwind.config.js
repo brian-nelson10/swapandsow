@@ -6,9 +6,9 @@ module.exports = {
        
         extend: {
             fontFamily: {
-                lofi: ['Lofi'],
+                lofi: ['Pumpkin'],
                 spring: ['Springtime'],
-                bebas: ['Bebas Neue']
+                bebas: ['Farmhouse']
             },
         },
     },
