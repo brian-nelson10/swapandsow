@@ -5,7 +5,7 @@ import Home from '../pages/Home';
 import Login from '../pages/Login';
 import NoMatch from '../pages/NoMatch';
 import SinglePost from '../pages/SinglePost';
-// import Profile from '../pages/Profile';
+import Profile from '../pages/Profile';
 import Signup from '../pages/Signup';
 import PostFormPage from "../pages/PostFormPage";
 
@@ -34,10 +34,10 @@ function AnimatedRoutes() {
                     path="/postform"
                     element={<PostFormPage />}
                 />
-                {/*<Route path="/profile">
+                <Route path="/profile">
                     <Route path=":username" element={<Profile />} />
                     <Route path="" element={<Profile />} />
-                </Route>*/}
+                </Route>
                 <Route
                     path="/post/:id"
                     element={<SinglePost/>}

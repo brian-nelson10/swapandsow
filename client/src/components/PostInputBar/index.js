@@ -28,8 +28,11 @@ const PostInputBar = () => {
             <div className="input-bar grid grid-cols-3 gap-2 bg-white shadow-xl rounded-lg opacity-99 items-center">
             {userData ? (
                 <div className="profile-image h-[20%] w-[20%] ml-[18rem] mb-[3.5rem]">
+                    <Link
+                    to={`/profile/${userData.me.username}`}>
                     <img src={userData.me.profileImage} alt="Profile" />
                     <div className='font-bebas tracking-wide justify-center text-center'>{userData.me.username}</div>
+                    </Link>
                 </div>
             ) :  <div className="profile-image h-[20%] w-[20%] ml-[18rem] mb-[3.5rem]">
                 <Link
