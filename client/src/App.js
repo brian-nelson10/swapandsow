@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Hamburger from './components/Hamburger';
 import PlantButton from './components/PlantButton';
 import Footer from './components/Footer';
@@ -74,7 +75,9 @@ function App() {
      //loop vai raf
      requestAnimationFrame(() => skewScrolling());
  };
+
   return (
+    
     <>
       <ApolloProvider client={client}>
         <Router>
@@ -85,7 +88,7 @@ function App() {
             <div className="grid items-center w-screen -mt-4 z-40">
               <Hamburger />
             </div>
-            <div className='grid font-spring text-[6rem] text-center mr-2 -mb-10'>
+            <div className='grid font-spring text-[6rem] text-center mr-2 h-fit -mb-10'>
               <AnimateLetters/>
               </div>
             <div className="grid items-center justify-end lg:-mr-[8rem] text-end z-50">
