@@ -88,7 +88,7 @@ const Signup = () => {
               <p className="text-white font-lofi text-[4rem]">
                 Signup
               </p>
-              <form onSubmit={handleFormSubmit} action="" className="sm:w-2/3 w-full px-4 lg:px-0 mx-auto">
+              <form onSubmit={handleFormSubmit} className="sm:w-2/3 w-full px-4 lg:px-0 mx-auto">
                 <div className="pb-2 pt-4">
                   <input
                     type="username"

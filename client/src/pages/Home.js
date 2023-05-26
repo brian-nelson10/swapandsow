@@ -45,7 +45,7 @@ const Home = () => {
                     <div className='mb-10'>
                         <PostInputBar />
                     </div>
-                    <div className='grid grid-cols-3 gap-4'>
+                    <div className='grid grid-cols-6 '>
                     {loggedIn && userData ? (
                         <div className="">
                             <FriendList
@@ -55,10 +55,11 @@ const Home = () => {
                             />
                         </div>
                     ) : <div className='font-lofi text-[2rem]'>Add some neighbors!</div>}
-                    <div className="justify-center items-center text-center col-span-2">
+                    <div className="justify-center items-center text-center col-span-4">
                         {loading ? (
                             <div className='font-lofi text-[2rem]'>...Loading</div>
                         ) : (
+                            
                             <PostList
                                 posts={posts}
                                 // user={user}
@@ -67,6 +68,10 @@ const Home = () => {
                             />
                         )}
                     </div>
+                    <div className='bg-gray-200 rounded-xl h-[20rem] shadow-xl p-8 text-center'>
+                       <div className='font-bebas tracking-wide  text-[2rem] border-b-2 border-black'> Find a Plant
+                        </div>
+                        </div>
                     </div>
                 </section>
             </motion.main>

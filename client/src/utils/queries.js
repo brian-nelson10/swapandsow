@@ -13,15 +13,35 @@ import { gql } from '@apollo/client';
 //     }
 //   }
 // `;
+// export const GET_POSTS = gql`
+//   query GetPosts($username: String) {
+//     posts(username: $username) {
+//       _id
+//       username
+//       postTitle
+//       postText
+//       imageUrl
+//       createdAt
+//     }
+//   }
+// `;
+
 export const GET_POSTS = gql`
-  query GetPosts($username: String) {
+  query posts($username: String) {
     posts(username: $username) {
       _id
-      username
       postTitle
       postText
-      imageUrl
       createdAt
+      username
+      imageUrl
+      reactionCount
+      reactions {
+        _id
+        createdAt
+        username
+        reactionBody
+      }
     }
   }
 `;
@@ -30,6 +50,7 @@ export const QUERY_POST = gql `
     query post($id: ID!) {
         post(_id: $id) {
             _id
+            postTitle
             postText
             createdAt
             username
@@ -45,7 +66,7 @@ export const QUERY_POST = gql `
     }`;
 
     export const QUERY_USER = gql`
-    query user($username: String!) {
+    query user($username: String) {
       user(username: $username) {
         _id
         username
@@ -59,6 +80,8 @@ export const QUERY_POST = gql `
         posts {
           _id
           postText
+          postTitle
+          imageUrl
           createdAt
           reactionCount
         }
@@ -76,7 +99,10 @@ export const QUERY_POST = gql `
       friendCount
       posts {
         _id
+        username
         postText
+        postTitle
+        imageUrl
         createdAt
         reactionCount
         reactions {

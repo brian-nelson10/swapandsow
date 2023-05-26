@@ -29,10 +29,15 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cors({
   origin: 'http://localhost:3000',
-  methods: 'POST, PUT, PATCH, GET, DELETE, OPTIONS, ADD, LOGIN',
+  methods: '*',
   allowedHeaders: '*',
 }));
 
+// Create a new instance of an Apollo server with the GraphQL schema
+const startApolloServer = async (typeDefs, resolvers) => {
+  await server.start();
+  // integrate our Apollo server with the Express application as middleware
+  server.applyMiddleware({ app });
 
 // Serve up static assets
 if (process.env.NODE_ENV === 'production') {
@@ -62,11 +67,6 @@ app.post('/uploads', (req, res) => {
     })
   });
 });
-// Create a new instance of an Apollo server with the GraphQL schema
-const startApolloServer = async (typeDefs, resolvers) => {
-await server.start();
-// integrate our Apollo server with the Express application as middleware
-server.applyMiddleware({ app });
 
 db.once('open', () => {
     app.listen(PORT, () => {

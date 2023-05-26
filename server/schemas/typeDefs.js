@@ -10,10 +10,10 @@ type User {
     _id: ID
     username: String
     email: String
+    profileImage: String
     friendCount: Int
     posts: [Post]
     friends: [User]
-    profileImage: String
   }
 type Post {
     _id: ID
@@ -38,12 +38,12 @@ type Post {
   type Query {
     me: User
     users: [User]
-    user(username: String!): User
-    posts(username: String): [Post!]!
+    user(username: String): User
+    posts(username: String): [Post]
     post(_id: ID!): Post
   }
   input CreatePostInput {
-    
+    username: String!
     postTitle: String!
     postText: String!
     imageUrl: String!

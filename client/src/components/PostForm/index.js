@@ -13,7 +13,7 @@ const wordVariants = {
     }
 }
 const PostForm = () => {
-    // const [username, setUsername] = useState('');
+    const [username, setUsername] = useState('');
     const [postTitle, setPostTitle] = useState('');
     const [postText, setPostText] = useState('');
     const [image, setImage] = useState(null);
@@ -60,7 +60,7 @@ const PostForm = () => {
             await createPost({
                 variables: {
                     input: {
-                    // username,
+                    username,
                     postTitle,
                     postText,
                     imageUrl,
@@ -70,7 +70,7 @@ const PostForm = () => {
             });
     
             // Clear form fields
-            // setUsername('');
+            setUsername('');
             setPostTitle('');
             setPostText('');
             setImage(null);
@@ -101,12 +101,13 @@ const PostForm = () => {
                 <div className='mb-4 flex-row flex gap-4'>
                 <p className="font-bold" htmlFor="username">Username:</p> <p className='font-bebas tracking-wide'>{userData.me.username}</p>
 
-          {/* <input
+          <input
             type="text"
             id="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          /> */}
+            value={userData.me.username}
+            readOnly
+            // onChange={(e) => setUsername(e.target.value)}
+          />
           </div>
                 <div className="mb-4">
                     <label htmlFor="title" className="block text-gray-700 font-bold mb-2">

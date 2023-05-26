@@ -25,15 +25,20 @@ const resolvers = {
         .populate('posts')
         .populate('friends');
     },
-    user: async (parent, { username }) => {
-      return User.findOne({ username })
+    user: async (parent, args, context) => {
+      if (context.user) {
+        const userData = await User.findOne({ _id: context.user._id})
+     
         .select('-__v -password')
         .populate('friends')
         .populate('posts');
+        return userData;
+      }
+      throw new AuthenticationError('Not logged in');
     },
-    posts: async (parent, { _id }) => {
-     return Post.find({ _id })
-        .populate('posts');
+    posts: async (parent, { username }) => {
+      const params = username ? { username } : {};
+     return Post.find(params).sort({ createdAt: -1 });
       },
     post: async (parent, { _id }) => {
       return Post.findOne({ _id });
@@ -74,7 +79,7 @@ const resolvers = {
 
         // Create a new post document in the database
         const newPost = new Post({
-         username: context.user.username,
+         username,
           postTitle,
           postText,
           imageUrl: uploadResult.secure_url,

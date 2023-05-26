@@ -7,6 +7,8 @@ export const LOGIN_USER = gql`
       user {
         _id
         email
+        username
+        profileImage
       }
     }
   }
@@ -37,6 +39,22 @@ mutation CreatePost($input: CreatePostInput!) {
   }
 }
 `;
+// export const CREATE_POST = gql`
+// mutation createPost($postTitle: String!, $postText: String!, $username: String!, $imageUrl: String!) {
+//   createPost(postTitle: $postTitle, postText: $postText, username: $username, imageUrl: $imageUrl ) {
+//     _id
+//     postTitle
+//     postText
+//     createdAt
+//     username
+//     imageUrl
+//     reactionCount
+//     reactions {
+//       _id
+//     }
+//   }
+// }`
+
 export const ADD_REACTION = gql`
   mutation addReaction($postId: ID!, $reactionBody: String!) {
     addReaction(postId: $postId, reactionBody: $reactionBody) {
